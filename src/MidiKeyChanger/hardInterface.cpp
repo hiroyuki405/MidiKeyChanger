@@ -4,7 +4,7 @@ MIDI_CREATE_DEFAULT_INSTANCE();
 
 PinMonitor *HardInterFace::_pinMon[PIN_MONITOR::MONITOR_SIZE] = {
 	new PinMonitor(PIN_LED)
-};
+}; 
 
 PinMonitor::PinMonitor(int pinNo){
 	_pinNo = pinNo;
