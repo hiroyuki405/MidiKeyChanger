@@ -2,5 +2,5 @@
     "port": "COM6",
     "board": "arduino:avr:mega",
     "configuration": "cpu=atmega2560",
-    "sketch": "KeyChanger.ino"
+    "sketch": "MidiKeyChanger.ino"
 }

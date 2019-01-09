@@ -1,20 +1,29 @@
 #include "main.h"
 
+extern MidiMng g_midiMng;
+extern HardInterFace g_hardInterFace;
+extern TimerState g_timerState;
+extern State g_state;
+// SoftwareSerial g_debugSerial(DEBUG_PORT_RX,DEBUG_PORT_TX);
 
 void setup() {
-	// g_pMidiMng = new MidiMng();
-	// g_pTimerState= new TimerState();
-	version();
-	g_MidiMng.initMidiCh();
-	HardInterFace::initPinMode();
+    DebugPrint::init();
+    DebugPrint::startupMessage();
+    g_midiMng.initMidiCh();
+    g_hardInterFace.initPinMode();
+    g_timerState.init();
+    g_state.init();
+    delay(100);
+    DebugPrint::println("initialized complete");
 }
 
 void loop() {
-	g_MidiMng.midiMonitor();
+    g_timerState.timerUpdate();
+    g_midiMng.midiMonitor();
 }
 
-void version(){
-	Serial.begin(MY_BAUDRATE);
-	Serial.println("Hello!");
-	// Serial.println(PUT_VERSION);
+/**
+ * バージョン表記
+ * */
+void version() {
 }

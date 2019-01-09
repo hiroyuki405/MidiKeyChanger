@@ -3,19 +3,20 @@
 #include "arduino.h"
 #include "common.h"
 
-
 class TimerParameter {
 public:
-	TimerParameter(ULONG time, void(*function)(), bool one_loop);
-	bool timerCompareCheck();
-	void functionBegin();
+    TimerParameter();
+    void timerInit(unsigned long time, void(*function)(), bool one_loop);
+    bool timerCompareCheck();
+    void functionBegin();
+
 private:
-	void(*_function)();		
-	bool _oneLoop;
-	ULONG _timeLimit;
-	ULONG _timeStart;
-	ULONG _timeRest;  
-	ULONG _timeSpan; 
-	bool _enabled;		
-	void resetTimer();
+    void(*_function)();
+    bool _oneLoop;
+    unsigned long _timeLimit;
+    unsigned long _timeStart;
+    unsigned long _timeRest;
+    unsigned long _timeSpan;
+    bool _enabled;
+    void resetTimer();
 };
